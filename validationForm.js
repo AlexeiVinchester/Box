@@ -1,4 +1,5 @@
 "use strict"
+//Special code for checking
 
 function addCheckIcon(tagname){
     tagname.innerHTML = '<i class="fas fa-check-circle"></i>';
@@ -13,7 +14,7 @@ function validateUserName(tagId, errorId){
         return false;
     }
     if(!name.match(/^[A-Za-z]*$/)){
-        tagForError.innerHTML = 'Write full Name';
+        tagForError.innerHTML = 'Use only latin!';
         return false;
     }
 
