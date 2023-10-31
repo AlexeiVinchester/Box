@@ -28,3 +28,22 @@ function chooseRegisterForm(){
     //try to clear input fields by toggling button Log In and Register
     loginUserName.value = '';
 }
+
+const onNavigate = (pathname) => {
+    window.history.pushState(
+        {}, 
+        pathname,
+        window.location.origin + pathname)
+};
+
+loginToggleButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    chooseLoginForm();
+    onNavigate('/login');
+});
+
+registerToggleButton.addEventListener('click', event => {
+    event.preventDefault();
+    chooseRegisterForm();
+    onNavigate('/registration');
+});
