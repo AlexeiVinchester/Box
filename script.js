@@ -3,9 +3,6 @@ const registerToggleButton = document.getElementById('register-btn');
 const loginForm = document.getElementById('log-in-form');
 const registerForm = document.getElementById('register-form');
 
-//variebles for clearing input fields
-const loginUserName = document.getElementById('login-username');
-const loginUserNameError = document.getElementById('log-username-error');
 
 function chooseLoginForm(){
     registerToggleButton.style.color = 'rgb(0, 0, 0)';

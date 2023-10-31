@@ -17,32 +17,32 @@
                     <form id="log-in-form" class="flexColumn">
                         <div class="flexColumn">
                             <div class="input-group">
-                                <input type="text" id="login-username" class="input-field" placeholder="Username" required onkeyup="validateUserName('login-username', 'log-username-error')">
+                                <input type="text" id="login-username" class="input-field" placeholder="Username" required>
                                 <span id="log-username-error"></span>
                             </div>
                             <div class="input-group">
-                                <input type="text" id="login-password" class="input-field" placeholder="Password" required onkeyup="validatePassword('login-password', 'log-password-error')">
+                                <input type="text" id="login-password" class="input-field" placeholder="Password" required>
                                 <span id="log-password-error"></span>
                             </div>
-                            <button type="submit" class="submit-btn" onclick="return validateLoginForm()">Log In</button>
+                            <button type="submit" id="login-submit-btn" class="submit-btn">Log In</button>
                         </div>
                         
                     </form>
                     <form id="register-form" class="flexColumn">
                         <div class="flexColumn">
                             <div class="input-group">
-                                <input type="text" id="reg-username" class="input-field" placeholder="Username" required onkeyup="validateUserName('reg-username', 'reg-username-error')">
+                                <input type="text" id="reg-username" class="input-field" placeholder="Username" required>
                                 <span id="reg-username-error"></span>
                             </div>
                             <div class="input-group">
-                                <input id="reg-phone" type="text" class="input-field" placeholder="User telephone" required onkeyup="validatePhone()">
+                                <input id="reg-phone" type="text" class="input-field" placeholder="User telephone" required>
                                 <span id="reg-phone-error"></span>
                             </div>
                             <div class="input-group">
-                                <input type="text" id="reg-password" class="input-field" placeholder="Password" required onkeyup="validatePassword('reg-password', 'reg-password-error')">
+                                <input type="text" id="reg-password" class="input-field" placeholder="Password" required>
                                 <span id="reg-password-error"></span>
                             </div>
-                            <button type="submit" class="submit-btn" onclick="return validateRegisterForm()">Register</button>
+                            <button type="submit" id="register-submit-btn" class="submit-btn">Register</button>
                         </div>
                     </form>
                 </div>

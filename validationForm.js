@@ -1,5 +1,13 @@
 "use strict"
 
+const loginUserName = document.getElementById('login-username');
+const loginPassword = document.getElementById('login-password');
+const loginSubmitBtn = document.getElementById('login-submit-btn');
+const registerUserName= document.getElementById('reg-username');
+const registerPhone = document.getElementById('reg-phone');
+const registerPassword = document.getElementById('reg-password');
+const registerSubmitBtn = document.getElementById('register-submit-btn');
+
 function addCheckIcon(tagname){
     tagname.innerHTML = '<i class="fas fa-check-circle"></i>';
 }
@@ -73,8 +81,36 @@ function validateLoginForm(){
 
 function validateRegisterForm(){
     if(!validateUserName('reg-username', 'reg-username-error') ||
-        !validatePassword('reg-password', 'reg-password-error')||
+        !validatePassword('reg-password', 'reg-password-error') ||
         !validatePhone()){
             return false;
         }
 }
+
+loginUserName.addEventListener('keyup', event => {
+    validateUserName('login-username', 'log-username-error');
+});
+
+loginPassword.addEventListener('keyup', event => {
+    validatePassword('login-password', 'log-password-error');
+});
+
+loginSubmitBtn.addEventListener('click', event => {
+    return validateLoginForm()
+});
+
+registerUserName.addEventListener('keyup', event => {
+    validateUserName('reg-username', 'reg-username-error');
+});
+
+registerPhone.addEventListener('keyup', event => {
+    validatePhone();
+});
+
+registerPassword.addEventListener('keyup', event => {
+    validatePassword('reg-password', 'reg-password-error');
+});
+
+registerSubmitBtn.addEventListener('click', event => {
+    return validateRegisterForm();
+});
