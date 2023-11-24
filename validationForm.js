@@ -2,17 +2,17 @@
 
 const loginUserName = document.getElementById('login-username');
 const loginPassword = document.getElementById('login-password');
-const loginSubmitBtn = document.getElementById('login-submit-btn');
-const registerUserName= document.getElementById('reg-username');
-const registerPhone = document.getElementById('reg-phone');
-const registerPassword = document.getElementById('reg-password');
-const registerSubmitBtn = document.getElementById('register-submit-btn');
+const loginSubmitButton = document.getElementById('login-submit-button');
+const registrationUserName= document.getElementById('registration-username');
+const registrationPhone = document.getElementById('registration-phone');
+const registrationPassword = document.getElementById('registration-password');
+const registrationSubmitButton = document.getElementById('registration-submit-button');
 
 function addCheckIcon(tagname){
     tagname.innerHTML = '<i class="fas fa-check-circle"></i>';
 }
 
-function validateUserName(tagId, errorId){
+function isValidUserName(tagId, errorId){
     const tagForError = document.getElementById(errorId);
     const name = document.getElementById(tagId).value;
 
@@ -29,9 +29,9 @@ function validateUserName(tagId, errorId){
     return true;
 }
 
-function validatePhone(){
-    const regPhoneError = document.getElementById('reg-phone-error');
-    const telNumber = document.getElementById('reg-phone').value;
+function isValidPhone(){
+    const regPhoneError = document.getElementById('registration-phone-error');
+    const telNumber = document.getElementById('registration-phone').value;
 
     if(telNumber.length == 0){
         regPhoneError.innerHTML = 'Phone number is required!';
@@ -54,7 +54,7 @@ function validatePhone(){
     return true;
 }
 
-function validatePassword(tagId, errorId){
+function isValidPassword(tagId, errorId){
     const password = document.getElementById(tagId).value;
     const tagForError = document.getElementById(errorId);
 
@@ -72,45 +72,49 @@ function validatePassword(tagId, errorId){
 
 }
 
-function validateLoginForm(){
-    if(!validateUserName('login-username', 'log-username-error') ||
-        !validatePassword('login-password', 'log-password-error')){
+function isValidLoginForm(){
+    if(!isValidUserName('login-username', 'login-username-error') ||
+        !isValidPassword('login-password', 'login-password-error')){
             return false;
+        } else{
+            return true;
         }
 }
 
-function validateRegisterForm(){
-    if(!validateUserName('reg-username', 'reg-username-error') ||
-        !validatePassword('reg-password', 'reg-password-error') ||
-        !validatePhone()){
+function isValidRegistrationForm(){
+    if(!isValidUserName('registration-username', 'registration-username-error') ||
+        !isValidPassword('registration-password', 'registration-password-error') ||
+        !isValidPhone()){
             return false;
+        } else{
+            return true;
         }
 }
 
 loginUserName.addEventListener('keyup', event => {
-    validateUserName('login-username', 'log-username-error');
+    isValidUserName('login-username', 'login-username-error');
 });
 
 loginPassword.addEventListener('keyup', event => {
-    validatePassword('login-password', 'log-password-error');
+    isValidPassword('login-password', 'login-password-error');
 });
 
-loginSubmitBtn.addEventListener('click', event => {
-    return validateLoginForm()
+loginSubmitButton.addEventListener('click', event => {
+    return isValidLoginForm()
 });
 
-registerUserName.addEventListener('keyup', event => {
-    validateUserName('reg-username', 'reg-username-error');
+registrationUserName.addEventListener('keyup', event => {
+    isValidUserName('registration-username', 'registration-username-error');
 });
 
-registerPhone.addEventListener('keyup', event => {
-    validatePhone();
+registrationPhone.addEventListener('keyup', event => {
+    isValidPhone();
 });
 
-registerPassword.addEventListener('keyup', event => {
-    validatePassword('reg-password', 'reg-password-error');
+registrationPassword.addEventListener('keyup', event => {
+    isValidPassword('registration-password', 'registration-password-error');
 });
 
-registerSubmitBtn.addEventListener('click', event => {
-    return validateRegisterForm();
+registrationSubmitButton.addEventListener('click', event => {
+    return isValidRegistrationForm();
 });
