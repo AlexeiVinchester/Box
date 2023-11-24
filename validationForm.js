@@ -1,18 +1,10 @@
 "use strict"
 
-const loginUserName = document.getElementById('login-username');
-const loginPassword = document.getElementById('login-password');
-const loginSubmitButton = document.getElementById('login-submit-button');
-const registrationUserName= document.getElementById('registration-username');
-const registrationPhone = document.getElementById('registration-phone');
-const registrationPassword = document.getElementById('registration-password');
-const registrationSubmitButton = document.getElementById('registration-submit-button');
-
-function addCheckIcon(tagname){
+export function addCheckIcon(tagname){
     tagname.innerHTML = '<i class="fas fa-check-circle"></i>';
 }
 
-function isValidUserName(tagId, errorId){
+export function isValidUserName(tagId, errorId){
     const tagForError = document.getElementById(errorId);
     const name = document.getElementById(tagId).value;
 
@@ -29,7 +21,7 @@ function isValidUserName(tagId, errorId){
     return true;
 }
 
-function isValidPhone(){
+export function isValidPhone(){
     const regPhoneError = document.getElementById('registration-phone-error');
     const telNumber = document.getElementById('registration-phone').value;
 
@@ -54,7 +46,7 @@ function isValidPhone(){
     return true;
 }
 
-function isValidPassword(tagId, errorId){
+export function isValidPassword(tagId, errorId){
     const password = document.getElementById(tagId).value;
     const tagForError = document.getElementById(errorId);
 
@@ -72,7 +64,7 @@ function isValidPassword(tagId, errorId){
 
 }
 
-function isValidLoginForm(){
+export function isValidLoginForm(){
     if(!isValidUserName('login-username', 'login-username-error') ||
         !isValidPassword('login-password', 'login-password-error')){
             return false;
@@ -81,7 +73,7 @@ function isValidLoginForm(){
         }
 }
 
-function isValidRegistrationForm(){
+export function isValidRegistrationForm(){
     if(!isValidUserName('registration-username', 'registration-username-error') ||
         !isValidPassword('registration-password', 'registration-password-error') ||
         !isValidPhone()){
@@ -90,7 +82,7 @@ function isValidRegistrationForm(){
             return true;
         }
 }
-
+/*
 loginUserName.addEventListener('keyup', event => {
     isValidUserName('login-username', 'login-username-error');
 });
@@ -117,4 +109,4 @@ registrationPassword.addEventListener('keyup', event => {
 
 registrationSubmitButton.addEventListener('click', event => {
     return isValidRegistrationForm();
-});
+});*/

@@ -34,10 +34,12 @@
 .button-box{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-top: 15%;
     margin-bottom: 5%;
-    background-color: white;
+    background-color: transparent;
     border-radius: 30px;
+    width: 50%;
 }
 
 .toggle-button{
@@ -57,12 +59,11 @@
 }
 
 #login-button{
-    background: linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52));
-    color: white;
+    background: white;
 }
 
 #registration-button{
-    background: transparent;
+    background: white;
 }
 
 .input-field{
@@ -89,8 +90,13 @@
     cursor: pointer;
 }
 
+.homePage-text{
+    color: rgb(51, 106, 195);
+    text-align: center;
+}
+
 #registration-form{
-    display: none; 
+    display: block; 
 }
 
 #login-form{
