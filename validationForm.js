@@ -82,31 +82,44 @@ export function isValidRegistrationForm(){
             return true;
         }
 }
-/*
-loginUserName.addEventListener('keyup', event => {
-    isValidUserName('login-username', 'login-username-error');
-});
 
-loginPassword.addEventListener('keyup', event => {
-    isValidPassword('login-password', 'login-password-error');
-});
+export function validateLoginForm(){
+    const loginUserName = document.getElementById('login-username');
+    const loginPassword = document.getElementById('login-password');
+    const loginSubmitButton = document.getElementById('login-submit-button');
+    
+    loginUserName.addEventListener('keyup', event => {
+        isValidUserName('login-username', 'login-username-error');
+    });
+    
+    loginPassword.addEventListener('keyup', event => {
+        isValidPassword('login-password', 'login-password-error');
+    });
+    
+    loginSubmitButton.addEventListener('click', event => {
+        return isValidLoginForm()
+    });
+}
 
-loginSubmitButton.addEventListener('click', event => {
-    return isValidLoginForm()
-});
+export function validateRegistrationForm(){
+    const registrationUserName= document.getElementById('registration-username');
+    const registrationPhone = document.getElementById('registration-phone');
+    const registrationPassword = document.getElementById('registration-password');
+    const registrationSubmitButton = document.getElementById('registration-submit-button');
 
-registrationUserName.addEventListener('keyup', event => {
-    isValidUserName('registration-username', 'registration-username-error');
-});
-
-registrationPhone.addEventListener('keyup', event => {
-    isValidPhone();
-});
-
-registrationPassword.addEventListener('keyup', event => {
-    isValidPassword('registration-password', 'registration-password-error');
-});
-
-registrationSubmitButton.addEventListener('click', event => {
-    return isValidRegistrationForm();
-});*/
+    registrationUserName.addEventListener('keyup', event => {
+        isValidUserName('registration-username', 'registration-username-error');
+    });
+    
+    registrationPhone.addEventListener('keyup', event => {
+        isValidPhone();
+    });
+    
+    registrationPassword.addEventListener('keyup', event => {
+        isValidPassword('registration-password', 'registration-password-error');
+    });
+    
+    registrationSubmitButton.addEventListener('click', event => {
+        return isValidRegistrationForm();
+    });
+}

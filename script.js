@@ -1,17 +1,10 @@
+"use strict"
+
 import { onNavigate } from "./route.js";
+import * as validation from "./validationForm.js"
 
 const loginToggleButton = document.getElementById('login-button');
 const registrationToggleButton = document.getElementById('registration-button');
-const loginUserName = document.getElementById('login-username');
-const loginPassword = document.getElementById('login-password');
-const loginSubmitButton = document.getElementById('login-submit-button');
-const registrationUserName= document.getElementById('registration-username');
-const registrationPhone = document.getElementById('registration-phone');
-const registrationPassword = document.getElementById('registration-password');
-const registrationSubmitButton = document.getElementById('registration-submit-button');
-const loginForm = document.getElementById('login-form');
-const registrationForm = document.getElementById('registration-form');
-
 
 function chooseLoginForm(){
     registrationToggleButton.style.color = 'rgb(0, 0, 0)';
@@ -27,15 +20,27 @@ function chooseRegistrationForm(){
     loginToggleButton.style.background = 'white';
 }
 
+async function getForm(func){
+    func();
+}
+
 loginToggleButton.addEventListener('click', (event) => {
     event.preventDefault();
-    chooseLoginForm();
+
+    getForm(chooseLoginForm)
+        .then(() => validation.validateLoginForm())
+        .catch((error) => console.log(`Error: ${error.name}, message: ${message.name}`));
+
     onNavigate('/login');
 });
 
 registrationToggleButton.addEventListener('click', event => {
-    event.preventDefault();
-    chooseRegistrationForm();
+    event.preventDefault(); 
+
+    getForm(chooseRegistrationForm)
+        .then(() => validation.validateRegistrationForm())
+        .catch((error) => console.log(`Error: ${error.name}, message: ${message.name}`));
+
     onNavigate('/registration');
 });
 
