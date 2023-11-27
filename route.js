@@ -2,10 +2,7 @@
 
 import { loginHtml } from "./loginForm.js";
 import { registrationHTML } from "./registrationForm.js";
-
-const homeHtml = `
-    <h4 class="homePage-text">Please, choose button!</h4>
-`;
+import { homeHtml } from "./root.js";
 
 const routes = {
     "/": homeHtml,

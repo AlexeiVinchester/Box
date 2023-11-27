@@ -26,21 +26,19 @@ async function getForm(func){
 
 loginToggleButton.addEventListener('click', (event) => {
     event.preventDefault();
+    onNavigate('/login');
 
     getForm(chooseLoginForm)
         .then(() => validation.validateLoginForm())
         .catch((error) => console.log(`Error: ${error.name}, message: ${message.name}`));
-
-    onNavigate('/login');
 });
 
 registrationToggleButton.addEventListener('click', event => {
     event.preventDefault(); 
+    onNavigate('/registration');
 
     getForm(chooseRegistrationForm)
         .then(() => validation.validateRegistrationForm())
         .catch((error) => console.log(`Error: ${error.name}, message: ${message.name}`));
-
-    onNavigate('/registration');
 });
 
