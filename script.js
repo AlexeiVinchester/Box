@@ -1,30 +1,44 @@
-const loginToggleButton = document.getElementById('login-btn');
-const registerToggleButton = document.getElementById('register-btn');
-const loginForm = document.getElementById('log-in-form');
-const registerForm = document.getElementById('register-form');
+"use strict"
 
-//variebles for clearing input fields
-const loginUserName = document.getElementById('login-username');
-const loginUserNameError = document.getElementById('log-username-error');
+import { onNavigate } from "./route.js";
+import * as validation from "./validationForm.js"
+
+const loginToggleButton = document.getElementById('login-button');
+const registrationToggleButton = document.getElementById('registration-button');
 
 function chooseLoginForm(){
-    registerToggleButton.style.color = 'rgb(0, 0, 0)';
-    registerToggleButton.style.background = 'transparent';
+    registrationToggleButton.style.color = 'rgb(0, 0, 0)';
+    registrationToggleButton.style.background = 'white';
     loginToggleButton.style.color = 'white';
     loginToggleButton.style.background = 'linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52))';
-    registerForm.style.display = 'none';
-    loginForm.style.display = 'block';
-
 }
 
-function chooseRegisterForm(){
-    registerToggleButton.style.color = 'white';
-    registerToggleButton.style.background = 'linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52))';
+function chooseRegistrationForm(){
+    registrationToggleButton.style.color = 'white';
+    registrationToggleButton.style.background = 'linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52))';
     loginToggleButton.style.color = 'rgb(0, 0, 0)';
     loginToggleButton.style.background = 'white';
-    loginForm.style.display = 'none';
-    registerForm.style.display = 'block'
-    
-    //try to clear input fields by toggling button Log In and Register
-    loginUserName.value = '';
 }
+
+async function getForm(func){
+    func();
+}
+
+loginToggleButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    onNavigate('/login');
+
+    getForm(chooseLoginForm)
+        .then(() => validation.validateLoginForm())
+        .catch((error) => console.log(`Error: ${error.name}, message: ${message.name}`));
+});
+
+registrationToggleButton.addEventListener('click', event => {
+    event.preventDefault(); 
+    onNavigate('/registration');
+
+    getForm(chooseRegistrationForm)
+        .then(() => validation.validateRegistrationForm())
+        .catch((error) => console.log(`Error: ${error.name}, message: ${message.name}`));
+});
+
