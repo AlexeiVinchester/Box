@@ -16,11 +16,15 @@ function chooseRegistrationForm(){
     loginToggleButton.className = 'choose-registration-form-login-toggle-button';
 }
 
-loginToggleButton.addEventListener('click', (event) => {
+loginToggleButton.addEventListener('click', event => {
     event.preventDefault();
     onNavigate('/login');
     chooseLoginForm();
     validation.validateLoginForm(); 
+    const loginSubmitButton = document.getElementById('login-submit-button');
+    loginSubmitButton.addEventListener('click', function(event){
+        onNavigate('/home')
+    });
 });
 
 registrationToggleButton.addEventListener('click', event => {
@@ -28,5 +32,13 @@ registrationToggleButton.addEventListener('click', event => {
     onNavigate('/registration');
     chooseRegistrationForm();
     validation.validateRegistrationForm();
+    const registrationSubmitButton = document.getElementById('registration-submit-button');
+    registrationSubmitButton.addEventListener('click', function(event){
+        onNavigate('/home')
+    });
 });
+
+
+
+
 

@@ -109,7 +109,7 @@
 }
 
 #registration-form {
-    display: block; 
+    display: none; 
 }
 
 #login-form {
@@ -148,6 +148,10 @@
 
 .input-container span i {
     color: seagreen;
+}
+
+.homePage {
+    margin-top: 150px;
 }
 
 

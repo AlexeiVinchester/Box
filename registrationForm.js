@@ -1,19 +1,29 @@
 export const registrationHTML = `
-<form id="registration-form" class="flexColumn">
-    <div class="flexColumn">
-        <div class="input-container">
-            <input type="text" id="registration-username" class="input-field" placeholder="Username" required>
-            <span id="registration-username-error"></span>
-        </div>
-        <div class="input-container">
-            <input id="registration-phone" type="text" class="input-field" placeholder="User telephone" required>
-            <span id="registration-phone-error"></span>
-        </div>
-        <div class="input-container">
-            <input type="text" id="registration-password" class="input-field" placeholder="Password" required>
-            <span id="registration-password-error"></span>
-        </div>
-        <button type="submit" id="registration-submit-button" class="submit-button">Register</button>
+
+<div class="container-input flexColumn">
+    <div class="button-container">
+        <button id="login-button" type="button" class="toggle-button">Log In</button>
+        <button id="registration-button" type="button" class="toggle-button">Register</button>
     </div>
-</form>
+    
+    <div class="form-container" id="form-container">
+        <form id="registration-form" class="flexColumn">
+            <div class="flexColumn">
+                <div class="input-container">
+                    <input type="text" id="registration-username" class="input-field" placeholder="Username" required>
+                    <span id="registration-username-error"></span>
+                </div>
+                <div class="input-container">
+                    <input id="registration-phone" type="text" class="input-field" placeholder="User telephone" required>
+                    <span id="registration-phone-error"></span>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="registration-password" class="input-field" placeholder="Password" required>
+                    <span id="registration-password-error"></span>
+                </div>
+                <button type="submit" id="registration-submit-button" class="submit-button">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
 `;

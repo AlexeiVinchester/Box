@@ -2,15 +2,17 @@
 
 import { loginHtml } from "./loginForm.js";
 import { registrationHTML } from "./registrationForm.js";
-import { homeHtml } from "./root.js";
+import { rootHtml } from "./root.js";
+import { homePage } from "./home.js";
 
 const routes = {
-    "/": homeHtml,
+    "/": rootHtml,
     "/login": loginHtml,
     "/registration": registrationHTML,
+    "/home": homePage
 };
 
-const rootDiv = document.getElementById('form-container');
+const rootDiv = document.getElementById('container');
 rootDiv.innerHTML = routes[window.location.pathname];
 
 export const onNavigate = (pathname) => {
