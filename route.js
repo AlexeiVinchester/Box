@@ -10,7 +10,7 @@ const routes = {
     "/registration": registrationHTML,
 };
 
-const rootDiv = document.getElementById('form-box');
+const rootDiv = document.getElementById('form-container');
 rootDiv.innerHTML = routes[window.location.pathname];
 
 export const onNavigate = (pathname) => {
