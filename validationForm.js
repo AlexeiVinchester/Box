@@ -65,22 +65,14 @@ export function isPasswordValid(tagId, errorId){
 }
 
 export function isLoginFormValid(){
-    if(!isUserNameValid('login-username', 'login-username-error') ||
-        !isPasswordValid('login-password', 'login-password-error')){
-            return false;
-        } else{
-            return true;
-        }
+    return isUserNameValid('login-username', 'login-username-error') && 
+           isPasswordValid('login-password', 'login-password-error');
 }
 
 export function isRegistrationFormValid(){
-    if(!isUserNameValid('registration-username', 'registration-username-error') ||
-        !isPasswordValid('registration-password', 'registration-password-error') ||
-        !isPhoneValid()){
-            return false;
-        } else{
-            return true;
-        }
+    return isUserNameValid('registration-username', 'registration-username-error') &&
+           isPasswordValid('registration-password', 'registration-password-error') &&
+           isPhoneValid()
 }
 
 export function validateLoginForm(){
