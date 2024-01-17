@@ -42,33 +42,17 @@
     width: 208px;
 }
 
-#login-button, #registration-button  {
+.toggle-button {
     padding: 10px 30px;
     border-radius: 30px;
     border: 0;
     transition: .5s;
     cursor: pointer;
-    
 }
 
-.choosed-login-form-registration-toggle-button {
-    color: rgb(0, 0, 0);
-    background: white;
-}
-
-.choosed-login-form-login-toggle-button {
+.active-button {
     color: white;
     background: linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52));
-}
-
-.choose-registration-form-registration-toggle-button {
-    color: white;
-    background: linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52));
-}
-
-.choose-registration-form-login-toggle-button {
-    color: rgb(0, 0, 0);
-    background: white;
 }
 
 .form-container {
@@ -108,12 +92,8 @@
     text-align: center;
 }
 
-#registration-form {
-    display: none; 
-}
-
-#login-form {
-    display: block;
+#registration-form, #login-form {
+    display: block; 
 }
 
 .input-container {

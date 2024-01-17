@@ -3,7 +3,7 @@ export const registrationHTML = `
 <div class="container-input flexColumn">
     <div class="button-container">
         <button id="login-button" type="button" class="toggle-button">Log In</button>
-        <button id="registration-button" type="button" class="toggle-button">Register</button>
+        <button id="registration-button" type="button" class="toggle-button active-button">Register</button>
     </div>
     
     <div class="form-container" id="form-container">

@@ -5,6 +5,8 @@ import { registrationHTML } from "./registrationForm.js";
 import { rootHtml } from "./root.js";
 import { homePage } from "./home.js";
 
+// class object
+
 const routes = {
     "/": rootHtml,
     "/login": loginHtml,
@@ -22,6 +24,9 @@ export const onNavigate = (pathname) => {
         window.location.origin + pathname
     );
     rootDiv.innerHTML = routes[pathname];
+ 
+    // add function init
+    // class for each forms with 2 function: render and onInit
 
 };
 
