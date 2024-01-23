@@ -1,21 +1,27 @@
 "use strict"
 
-import { loginHtml } from "./loginForm.js";
-import { registrationHTML } from "./registrationForm.js";
-import { rootHtml } from "./root.js";
-import { homePage } from "./home.js";
+import { UserLogin } from "./loginForm.js";
+import { UserRegistration } from "./registrationForm.js";
+import { HomePage } from "./home.js";
+import { RootPage } from "./root.js";
 
-// class object
+let loginPage = new UserLogin();
+let registrationPage = new UserRegistration();
+let rootPage = new RootPage();
+let homePage = new HomePage();
 
 const routes = {
-    "/": rootHtml,
-    "/login": loginHtml,
-    "/registration": registrationHTML,
+    "/": rootPage,
+    "/login": loginPage,
+    "/registration": registrationPage,
     "/home": homePage
-};
-
+}
 const rootDiv = document.getElementById('container');
-rootDiv.innerHTML = routes[window.location.pathname];
+
+function setContent(currentPage){
+    rootDiv.innerHTML = currentPage.render();
+    currentPage.onInit();
+}
 
 export const onNavigate = (pathname) => {
     window.history.pushState(
@@ -23,14 +29,13 @@ export const onNavigate = (pathname) => {
         pathname, 
         window.location.origin + pathname
     );
-    rootDiv.innerHTML = routes[pathname];
- 
-    // add function init
-    // class for each forms with 2 function: render and onInit
-
+    
+    let currentPage = routes[pathname];
+    setContent(currentPage);
 };
 
 window.onpopstate = () => {
-    rootDiv.innerHTML = routes[window.location.pathname];
+    let currentPage = routes[window.location.pathname];
+    setContent(currentPage);
 };
 
