@@ -5,16 +5,16 @@ import { UserRegistration } from "./registrationForm.js";
 import { HomePage } from "./home.js";
 import { RootPage } from "./root.js";
 
-let loginPage = new UserLogin();
-let registrationPage = new UserRegistration();
-let rootPage = new RootPage();
-let homePage = new HomePage();
+const loginPage = new UserLogin();
+const registrationPage = new UserRegistration();
+const rootPage = new RootPage();
+const homePage = new HomePage();
 
 const routes = {
     "/": rootPage,
     "/login": loginPage,
     "/registration": registrationPage,
-    "/home": homePage
+    "/home": homePage,
 }
 const rootDiv = document.getElementById('container');
 
@@ -30,12 +30,12 @@ export const onNavigate = (pathname) => {
         window.location.origin + pathname
     );
     
-    let currentPage = routes[pathname];
+    const currentPage = routes[pathname];
     setContent(currentPage);
 };
 
 window.onpopstate = () => {
-    let currentPage = routes[window.location.pathname];
+    const currentPage = routes[window.location.pathname];
     setContent(currentPage);
 };
 

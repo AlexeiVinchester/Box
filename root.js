@@ -24,5 +24,4 @@ export class RootPage extends User{
         console.log('Root page');
         return super.render();
     }
-
 }

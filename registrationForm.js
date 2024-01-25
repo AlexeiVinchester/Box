@@ -58,5 +58,4 @@ export class UserRegistration extends User{
             onNavigate('/home');
         });
     }
-
 }

@@ -1,4 +1,5 @@
 "use strict"
+
 import User from "./user.js";
 import * as validation from "./validationForm.js";
 import { onNavigate } from "./route.js";
