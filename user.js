@@ -2,7 +2,7 @@
 
 import { onNavigate } from "./route.js";
 
-export default class newHTML{
+export default class User{
 
     constructor(html){
         this.content = html;

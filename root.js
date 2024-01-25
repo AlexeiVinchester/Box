@@ -1,7 +1,6 @@
 "use strict"
 
-import newHTML from "./user.js";
-import { onNavigate } from "./route.js";
+import User from "./user.js";
 
 function rootHTML(){
     return `
@@ -15,7 +14,7 @@ function rootHTML(){
             `;
 }
 
-export class RootPage extends newHTML{
+export class RootPage extends User{
 
     constructor(){
         super(rootHTML());

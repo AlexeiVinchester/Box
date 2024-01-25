@@ -1,8 +1,9 @@
 "use strict"
 
-import newHTML from "./user.js";
+import User from "./user.js";
 import * as validation from "./validationForm.js";
 import { onNavigate } from "./route.js";
+import { saveNewUser } from "./services/user.services.js";
 
 function registrationHTML(){
     return `
@@ -35,7 +36,7 @@ function registrationHTML(){
             `;
 }
 
-export class UserRegistration extends newHTML{
+export class UserRegistration extends User{
 
     constructor(){
         super(registrationHTML());
@@ -51,6 +52,9 @@ export class UserRegistration extends newHTML{
         validation.validateRegistrationForm(); 
         const registrationSubmitButton = document.getElementById('registration-submit-button');
         registrationSubmitButton.addEventListener('click', function(event){
+            const login= document.getElementById('registration-username').value;
+            const password = document.getElementById('registration-password').value;
+            saveNewUser(login, password);
             onNavigate('/home');
         });
     }

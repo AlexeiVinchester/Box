@@ -1,7 +1,8 @@
 "use strict"
-import newHTML from "./user.js";
+import User from "./user.js";
 import * as validation from "./validationForm.js";
 import { onNavigate } from "./route.js";
+import { isUserExist } from "./services/user.services.js";
 
 function loginHtml(){
     return `
@@ -29,7 +30,7 @@ function loginHtml(){
         `;
 }
 
-export class UserLogin extends newHTML{
+export class UserLogin extends User{
 
     constructor(){
         super(loginHtml());
@@ -40,12 +41,28 @@ export class UserLogin extends newHTML{
         return super.render();
     }
 
+    static createErrorMessage(){
+        const message = document.createElement('div');
+        message.className = 'error-message';
+        message.innerHTML = 'Invalid login or password. Try again!';
+        return message;
+    }
+
     onInit(){
         super.onInit();
         validation.validateLoginForm();
         const loginSubmitButton = document.getElementById('login-submit-button');
         loginSubmitButton.addEventListener('click', function(event){
-            onNavigate('/home');
+            event.preventDefault();
+            const login = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            if(isUserExist(login, password)){
+                onNavigate('/home');
+            } else {
+                const message = UserLogin.createErrorMessage();
+                loginSubmitButton.before(message);
+                setTimeout(() => message.remove(), 1000);
+            }
         });
     }
 }

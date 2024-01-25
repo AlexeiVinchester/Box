@@ -134,6 +134,11 @@
     margin-top: 150px;
 }
 
+.error-message {
+    color: rgb(252, 30, 30);
+    text-align: center;
+}
+
 
 
 
