@@ -1,66 +1,71 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     
 }
-.flexColumn{
+
+.flexColumn {
     display: flex;
     flex-direction: column;
     align-items: center;
     
 }
-.container{
+
+.container {
     width: 100%;
     height: 100%;
     min-height: 600px;
     background: linear-gradient(to right, #3882f2, #32f653);
     position: absolute;
 }
-.container-input{
+
+.container-input {
     min-width: 360px;
     min-height: 400px;
     width: 420px;
-    height: 400px;
     background-color: rgba(248, 239, 239, 0.75);
-    margin-top: 15%;
+    margin-top: 150px;
+    padding-bottom: 40px;
     border-radius: 30px;
     outline: none;
 }
-.btn-box{
+
+.button-container {
     display: flex;
     flex-direction: row;
-    margin-top: 15%;
-    margin-bottom: 5%;
-    background-color: white;
+    justify-content: space-between;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    background-color: transparent;
     border-radius: 30px;
+    width: 208px;
 }
 
-.toggle-btn{
+.toggle-button {
     padding: 10px 30px;
     border-radius: 30px;
     border: 0;
     transition: .5s;
     cursor: pointer;
-    
 }
-.form-box{
-    background-color: transparent;
-    margin-top: 5%;
-    width: 80%;
-    
-}
-#login-btn{
-    background: linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52));
+
+.active-button {
     color: white;
+    background: linear-gradient(to right, rgb(51, 106, 195), rgb(52, 199, 52));
 }
-#register-btn{
-    background: transparent;
+
+.form-container {
+    background-color: transparent;
+    margin-top: 30px;
+    width: 320px;
+    height: 100%;
+    
 }
-.inputttt-field{
+
+.input-field {
     cursor: pointer;
     padding: 5px 10px 5px 10px;
-    
     margin-bottom: 15px;
     background: transparent;
     border-left: 0;
@@ -69,10 +74,11 @@
     border-bottom: 1px solid rgb(151, 150, 150);
     outline: none;
 }
-.submit-btn{
-    width: 60%;
-    margin-top: 10%;
-    padding: 10px 30px;
+
+.submit-button {
+    width: 200px;
+    margin-top: 25px;
+    padding: 10px 80px;
     border-radius: 30px;
     border: 0;
     transition: .5s;
@@ -80,23 +86,25 @@
     color: white;
     cursor: pointer;
 }
-#register-form{
-    display: none;
-    
-    
+
+.homePage-text {
+    color: rgb(51, 106, 195);
+    text-align: center;
 }
-#log-in-form{
-    display: block;
-   
+
+#registration-form, #login-form {
+    display: block; 
 }
-.input-group{
+
+.input-container {
    margin: 10px 0;
    width: 100%;
    display: flex;
    align-items: center;
    position: relative;
 }
-.input-group input{
+
+.input-container input {
     flex-basis: 100%;
     background: transparent;
     border: 0;
@@ -106,15 +114,31 @@
     color: #333;
     font-size: 16px;
 }
-.input-group span{
+
+.input-container span {
     color: red;
     font-size: 14px;
     position: absolute;
     right: 15px;
 }
-::placeholder{
+
+::placeholder {
     font-size: 14px;
 }
-.input-group span i{
+
+.input-container span i {
     color: seagreen;
 }
+
+.homePage {
+    margin-top: 150px;
+}
+
+.error-message {
+    color: rgb(252, 30, 30);
+    text-align: center;
+}
+
+
+
+

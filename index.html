@@ -7,49 +7,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     </head>
     <body> 
-        <div class="container flexColumn">
-            <div class="container-input flexColumn">
-                <div class="btn-box">
-                    <button id="login-btn" type="button" class="toggle-btn" onclick="chooseLoginForm()">Log In</button>
-                    <button id="register-btn" type="button" class="toggle-btn" onclick="chooseRegisterForm()">Register</button>
-                </div>
-                <div class="form-box">
-                    <form id="log-in-form" class="flexColumn">
-                        <div class="flexColumn">
-                            <div class="input-group">
-                                <input type="text" id="login-username" class="input-field" placeholder="Username" required onkeyup="validateUserName('login-username', 'log-username-error')">
-                                <span id="log-username-error"></span>
-                            </div>
-                            <div class="input-group">
-                                <input type="text" id="login-password" class="input-field" placeholder="Password" required onkeyup="validatePassword('login-password', 'log-password-error')">
-                                <span id="log-password-error"></span>
-                            </div>
-                            <button type="submit" class="submit-btn" onclick="return validateLoginForm()">Log In</button>
-                        </div>
-                        
-                    </form>
-                    <form id="register-form" class="flexColumn">
-                        <div class="flexColumn">
-                            <div class="input-group">
-                                <input type="text" id="reg-username" class="input-field" placeholder="Username" required onkeyup="validateUserName('reg-username', 'reg-username-error')">
-                                <span id="reg-username-error"></span>
-                            </div>
-                            <div class="input-group">
-                                <input id="reg-phone" type="text" class="input-field" placeholder="User telephone" required onkeyup="validatePhone()">
-                                <span id="reg-phone-error"></span>
-                            </div>
-                            <div class="input-group">
-                                <input type="text" id="reg-password" class="input-field" placeholder="Password" required onkeyup="validatePassword('reg-password', 'reg-password-error')">
-                                <span id="reg-password-error"></span>
-                            </div>
-                            <button type="submit" class="submit-btn" onclick="return validateRegisterForm()">Register</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <script src="script.js"></script>
-            <script src="validationForm.js"></script>
-        </div>
-        
+        <div class="container flexColumn" id="container">
+            
+        </div>  
+        <div>
+            <script type="module" src="route.js"></script>
+            <script type="module" src="script.js"></script>
+        </div>  
     </body>
 </html>

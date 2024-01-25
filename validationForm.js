@@ -1,11 +1,11 @@
 "use strict"
 //Special code for checking
 
-function addCheckIcon(tagname){
+export function addCheckIcon(tagname){
     tagname.innerHTML = '<i class="fas fa-check-circle"></i>';
 }
 
-function validateUserName(tagId, errorId){
+export function isUserNameValid(tagId, errorId){
     const tagForError = document.getElementById(errorId);
     const name = document.getElementById(tagId).value;
 
@@ -22,9 +22,9 @@ function validateUserName(tagId, errorId){
     return true;
 }
 
-function validatePhone(){
-    const regPhoneError = document.getElementById('reg-phone-error');
-    const telNumber = document.getElementById('reg-phone').value;
+export function isPhoneValid(){
+    const regPhoneError = document.getElementById('registration-phone-error');
+    const telNumber = document.getElementById('registration-phone').value;
 
     if(telNumber.length == 0){
         regPhoneError.innerHTML = 'Phone number is required!';
@@ -47,7 +47,7 @@ function validatePhone(){
     return true;
 }
 
-function validatePassword(tagId, errorId){
+export function isPasswordValid(tagId, errorId){
     const password = document.getElementById(tagId).value;
     const tagForError = document.getElementById(errorId);
 
@@ -65,17 +65,54 @@ function validatePassword(tagId, errorId){
 
 }
 
-function validateLoginForm(){
-    if(!validateUserName('login-username', 'log-username-error') ||
-        !validatePassword('login-password', 'log-password-error')){
-            return false;
-        }
+export function isLoginFormValid(){
+    return isUserNameValid('login-username', 'login-username-error') && 
+           isPasswordValid('login-password', 'login-password-error');
 }
 
-function validateRegisterForm(){
-    if(!validateUserName('reg-username', 'reg-username-error') ||
-        !validatePassword('reg-password', 'reg-password-error')||
-        !validatePhone()){
-            return false;
-        }
+export function isRegistrationFormValid(){
+    return isUserNameValid('registration-username', 'registration-username-error') &&
+           isPasswordValid('registration-password', 'registration-password-error') &&
+           isPhoneValid()
+}
+
+export function validateLoginForm(){
+    const loginUserName = document.getElementById('login-username');
+    const loginPassword = document.getElementById('login-password');
+    const loginSubmitButton = document.getElementById('login-submit-button');
+    
+    loginUserName.addEventListener('keyup', event => {
+        isUserNameValid('login-username', 'login-username-error');
+    });
+    
+    loginPassword.addEventListener('keyup', event => {
+        isPasswordValid('login-password', 'login-password-error');
+    });
+    
+    loginSubmitButton.addEventListener('click', event => {
+        return isLoginFormValid()
+    });
+}
+
+export function validateRegistrationForm(){
+    const registrationUserName= document.getElementById('registration-username');
+    const registrationPhone = document.getElementById('registration-phone');
+    const registrationPassword = document.getElementById('registration-password');
+    const registrationSubmitButton = document.getElementById('registration-submit-button');
+
+    registrationUserName.addEventListener('keyup', event => {
+        isUserNameValid('registration-username', 'registration-username-error');
+    });
+    
+    registrationPhone.addEventListener('keyup', event => {
+        isPhoneValid();
+    });
+    
+    registrationPassword.addEventListener('keyup', event => {
+        isPasswordValid('registration-password', 'registration-password-error');
+    });
+    
+    registrationSubmitButton.addEventListener('click', event => {
+        return isRegistrationFormValid();
+    });
 }
