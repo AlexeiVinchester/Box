@@ -60,9 +60,11 @@ export class LoginPage extends AuthorizationPage {
             if (isUserExist(login, password)) {
                 onNavigate('/home');
             } else {
-                const message = LoginPage.createErrorMessage();
-                loginSubmitButton.before(message);
-                setTimeout(() => message.remove(), 1000);
+                if (loginSubmitButton.parentElement.children.length == 3) {
+                    const message = LoginPage.createErrorMessage();
+                    loginSubmitButton.before(message);
+                    setTimeout(() => message.remove(), 1000);
+                }
             }
         });
     }
