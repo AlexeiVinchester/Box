@@ -1,6 +1,7 @@
 "use strict";
 
 import { onNavigate } from "./router.js";
+import { BasePage } from "./basePage.js";
 
 export function getAuthorizationHTML() {
     return `
@@ -14,7 +15,7 @@ export function getAuthorizationHTML() {
             `;
 }
 
-export class AuthorizationPage {
+export class AuthorizationPage extends BasePage {
 
     render() {
         return getAuthorizationHTML();

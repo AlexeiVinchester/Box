@@ -1,8 +1,9 @@
 "use strict"
 
 import { onNavigate } from "./router.js";
+import { BasePage } from "./basePage.js";
 
-export class HomePage {
+export class HomePage extends BasePage {
 
     render() {
         return `

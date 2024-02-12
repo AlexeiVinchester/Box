@@ -52,6 +52,7 @@ export class RegistrationPage extends AuthorizationPage {
         validation.validateRegistrationForm();
         const registrationSubmitButton = document.getElementById('registration-submit-button');
         registrationSubmitButton.addEventListener('click', event => {
+            event.preventDefault();
             const login = document.getElementById('registration-username').value;
             const password = document.getElementById('registration-password').value;
             saveNewUser(login, password);

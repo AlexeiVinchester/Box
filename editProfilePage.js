@@ -1,6 +1,8 @@
 "use strict";
 
-export class EditProfilePage {
+import { BasePage } from "./basePage.js";
+
+export class EditProfilePage extends BasePage {
 
     render() {
         return "<h5>Try to edit profile</h5>";
@@ -9,5 +11,4 @@ export class EditProfilePage {
     onInit() {
         console.log('Initialisation of edit profile!');
     }
-
 }
