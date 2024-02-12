@@ -1,6 +1,6 @@
-"use strict"
+"use strict";
 
-import { onNavigate } from "./route.js";
+import { onNavigate } from "./router.js";
 
 onNavigate('/');
 

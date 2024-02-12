@@ -1,11 +1,11 @@
 "use strict"
 
-import User from "./user.js";
+import { AuthorizationPage } from "./authorizationPage.js";
 import * as validation from "./validationForm.js";
-import { onNavigate } from "./route.js";
+import { onNavigate } from "./router.js";
 import { isUserExist } from "./services/user.services.js";
 
-function loginHtml(){
+function getLoginPageHtml() {
     return `
             <div class="container-input flexColumn">
                 <div class="button-container">
@@ -31,36 +31,36 @@ function loginHtml(){
         `;
 }
 
-export class UserLogin extends User{
+export class LoginPage extends AuthorizationPage {
 
-    constructor(){
-        super(loginHtml());
+    constructor() {
+        super();
     }
 
-    render(){
+    render() {
         console.log('New user wants to login');
-        return super.render();
+        return getLoginPageHtml();
     }
 
-    static createErrorMessage(){
+    static createErrorMessage() {
         const message = document.createElement('div');
         message.className = 'error-message';
         message.innerHTML = 'Invalid login or password. Try again!';
         return message;
     }
 
-    onInit(){
+    onInit() {
         super.onInit();
         validation.validateLoginForm();
         const loginSubmitButton = document.getElementById('login-submit-button');
-        loginSubmitButton.addEventListener('click', function(event){
+        loginSubmitButton.addEventListener('click', event => {
             event.preventDefault();
             const login = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
-            if(isUserExist(login, password)){
+            if (isUserExist(login, password)) {
                 onNavigate('/home');
             } else {
-                const message = UserLogin.createErrorMessage();
+                const message = LoginPage.createErrorMessage();
                 loginSubmitButton.before(message);
                 setTimeout(() => message.remove(), 1000);
             }
@@ -68,10 +68,4 @@ export class UserLogin extends User{
     }
 }
 
-/*
-    добавить local Storage
-    создать папку servises
-    в ней создать файл user.servises.js
-    посмотреть у гугле, как с этим работать и как это делается
-*/
 

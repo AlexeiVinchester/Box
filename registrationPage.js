@@ -1,11 +1,11 @@
 "use strict"
 
-import User from "./user.js";
+import { AuthorizationPage } from "./authorizationPage.js";
 import * as validation from "./validationForm.js";
-import { onNavigate } from "./route.js";
+import { onNavigate } from "./router.js";
 import { saveNewUser } from "./services/user.services.js";
 
-function registrationHTML(){
+function getRegistrationPageHTML() {
     return `
             <div class="container-input flexColumn">
                 <div class="button-container">
@@ -36,23 +36,23 @@ function registrationHTML(){
             `;
 }
 
-export class UserRegistration extends User{
+export class RegistrationPage extends AuthorizationPage {
 
-    constructor(){
-        super(registrationHTML());
+    constructor() {
+        super();
     }
 
-    render(){
+    render() {
         console.log('New user wants to register');
-        return super.render();
+        return getRegistrationPageHTML();
     }
 
-    onInit(){
+    onInit() {
         super.onInit();
-        validation.validateRegistrationForm(); 
+        validation.validateRegistrationForm();
         const registrationSubmitButton = document.getElementById('registration-submit-button');
-        registrationSubmitButton.addEventListener('click', function(event){
-            const login= document.getElementById('registration-username').value;
+        registrationSubmitButton.addEventListener('click', event => {
+            const login = document.getElementById('registration-username').value;
             const password = document.getElementById('registration-password').value;
             saveNewUser(login, password);
             onNavigate('/home');

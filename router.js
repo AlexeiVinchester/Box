@@ -1,28 +1,29 @@
-"use strict"
+"use strict";
 
-import { UserLogin } from "./loginForm.js";
-import { UserRegistration } from "./registrationForm.js";
-import { HomePage } from "./home.js";
-import { RootPage } from "./root.js";
-import { EditProfile } from "./editProfile.js";
+import { LoginPage } from "./loginPage.js";
+import { RegistrationPage } from "./registrationPage.js";
+import { HomePage } from "./homePage.js";
+import { EditProfilePage } from "./editProfilePage.js";
+import { AuthorizationPage } from "./authorizationPage.js";
 
 
-const loginPage = new UserLogin();
-const registrationPage = new UserRegistration();
-const rootPage = new RootPage();
+const loginPage = new LoginPage();
+const registrationPage = new RegistrationPage();
+const authorizationPage = new AuthorizationPage();
 const homePage = new HomePage();
-const editProfile = new EditProfile();
+const editProfilePage = new EditProfilePage();
 
 const routes = {
-    "/": rootPage,
+    "/": authorizationPage,
     "/login": loginPage,
     "/registration": registrationPage,
     "/home": homePage,
-    "/home/edit": editProfile,
-}
+    "/home/edit": editProfilePage,
+};
+
 const rootDiv = document.getElementById('container');
 
-function setContent(currentPage){
+function setContent(currentPage) {
     rootDiv.innerHTML = currentPage.render();
     currentPage.onInit();
 }
@@ -30,10 +31,10 @@ function setContent(currentPage){
 export const onNavigate = (pathname) => {
     window.history.pushState(
         {},
-        pathname, 
+        pathname,
         window.location.origin + pathname
     );
-    
+
     const currentPage = routes[pathname];
     setContent(currentPage);
 };

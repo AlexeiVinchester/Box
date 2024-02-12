@@ -1,12 +1,12 @@
 "use strict";
 
-export class EditProfile{
+export class EditProfilePage {
 
-    render(){
+    render() {
         return "<h5>Try to edit profile</h5>";
     }
 
-    onInit(){
+    onInit() {
         console.log('Initialisation of edit profile!');
     }
 
