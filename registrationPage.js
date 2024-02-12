@@ -25,7 +25,7 @@ function getRegistrationPageHTML() {
                                 <span id="registration-phone-error"></span>
                             </div>
                             <div class="input-container">
-                                <input type="text" id="registration-password" class="input-field" placeholder="Password" required>
+                                <input type="password" id="registration-password" class="input-field" placeholder="Password" required>
                                 <span id="registration-password-error"></span>
                             </div>
                             <button type="submit" id="registration-submit-button" class="submit-button">Register</button>

@@ -20,7 +20,7 @@ function getLoginPageHtml() {
                                 <span id="login-username-error"></span>
                             </div>
                             <div class="input-container">
-                                <input type="text" id="login-password" class="input-field" placeholder="Password" required>
+                                <input type="password" id="login-password" class="input-field" placeholder="Password" required>
                                 <span id="login-password-error"></span>
                             </div>
                             <button type="submit" id="login-submit-button" class="submit-button">Log In</button>
