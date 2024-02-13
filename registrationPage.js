@@ -62,7 +62,7 @@ export class RegistrationPage extends AuthorizationPage {
             event.preventDefault();
             const login = document.getElementById('registration-username').value;
             const password = document.getElementById('registration-password').value;
-            if(!isLoginUsed(login, password)){
+            if (!isLoginUsed(login, password)) {
                 saveNewUser(login, password);
                 saveLoggedUser(login, password);
                 onNavigate('/home');
@@ -72,7 +72,7 @@ export class RegistrationPage extends AuthorizationPage {
                     registrationSubmitButton.before(message);
                     setTimeout(() => message.remove(), 1000);
                 }
-            }  
+            }
         });
     }
 }

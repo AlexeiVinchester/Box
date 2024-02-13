@@ -67,7 +67,7 @@ export class LoginPage extends AuthorizationPage {
                     setTimeout(() => message.remove(), 1000);
                 }
             }
-        });  
+        });
     }
 }
 
