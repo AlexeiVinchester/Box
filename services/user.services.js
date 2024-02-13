@@ -19,3 +19,7 @@ export function isUserLogged() {
 export function logOutUser() {
     localStorage.removeItem('loggedUser');
 }
+
+export function isLoginUsed(login){
+    return localStorage.hasOwnProperty(login);
+}

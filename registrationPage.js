@@ -3,7 +3,7 @@
 import { AuthorizationPage } from "./authorizationPage.js";
 import * as validation from "./validationForm.js";
 import { onNavigate } from "./router.js";
-import { saveLoggedUser, saveNewUser } from "./services/user.services.js";
+import { isLoginUsed, saveLoggedUser, saveNewUser } from "./services/user.services.js";
 
 function getRegistrationPageHTML() {
     return `
@@ -47,6 +47,13 @@ export class RegistrationPage extends AuthorizationPage {
         return getRegistrationPageHTML();
     }
 
+    static createErrorMessage() {
+        const message = document.createElement('div');
+        message.className = 'error-message';
+        message.innerHTML = 'User with this login exists!';
+        return message;
+    }
+
     onInit() {
         super.onInit();
         validation.validateRegistrationForm();
@@ -55,9 +62,17 @@ export class RegistrationPage extends AuthorizationPage {
             event.preventDefault();
             const login = document.getElementById('registration-username').value;
             const password = document.getElementById('registration-password').value;
-            saveNewUser(login, password);
-            saveLoggedUser(login, password);
-            onNavigate('/home');
+            if(!isLoginUsed(login, password)){
+                saveNewUser(login, password);
+                saveLoggedUser(login, password);
+                onNavigate('/home');
+            } else {
+                if (registrationSubmitButton.parentElement.children.length == 4) {
+                    const message = RegistrationPage.createErrorMessage();
+                    registrationSubmitButton.before(message);
+                    setTimeout(() => message.remove(), 1000);
+                }
+            }  
         });
     }
 }
