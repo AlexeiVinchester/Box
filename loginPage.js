@@ -1,9 +1,9 @@
-"use strict"
+"use strict";
 
 import { AuthorizationPage } from "./authorizationPage.js";
 import * as validation from "./validationForm.js";
 import { onNavigate } from "./router.js";
-import { isUserExist } from "./services/user.services.js";
+import { isUserExist, saveLoggedUser } from "./services/user.services.js";
 
 function getLoginPageHtml() {
     return `
@@ -58,6 +58,7 @@ export class LoginPage extends AuthorizationPage {
             const login = document.getElementById('login-username').value;
             const password = document.getElementById('login-password').value;
             if (isUserExist(login, password)) {
+                saveLoggedUser(login, password);
                 onNavigate('/home');
             } else {
                 if (loginSubmitButton.parentElement.children.length == 3) {
@@ -66,7 +67,7 @@ export class LoginPage extends AuthorizationPage {
                     setTimeout(() => message.remove(), 1000);
                 }
             }
-        });
+        });  
     }
 }
 

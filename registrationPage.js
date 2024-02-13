@@ -1,9 +1,9 @@
-"use strict"
+"use strict";
 
 import { AuthorizationPage } from "./authorizationPage.js";
 import * as validation from "./validationForm.js";
 import { onNavigate } from "./router.js";
-import { saveNewUser } from "./services/user.services.js";
+import { saveLoggedUser, saveNewUser } from "./services/user.services.js";
 
 function getRegistrationPageHTML() {
     return `
@@ -56,6 +56,7 @@ export class RegistrationPage extends AuthorizationPage {
             const login = document.getElementById('registration-username').value;
             const password = document.getElementById('registration-password').value;
             saveNewUser(login, password);
+            saveLoggedUser(login, password);
             onNavigate('/home');
         });
     }

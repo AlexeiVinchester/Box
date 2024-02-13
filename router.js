@@ -5,6 +5,7 @@ import { RegistrationPage } from "./registrationPage.js";
 import { HomePage } from "./homePage.js";
 import { EditProfilePage } from "./editProfilePage.js";
 import { AuthorizationPage } from "./authorizationPage.js";
+import { isUserLogged } from "./services/user.services.js";
 
 
 const loginPage = new LoginPage();
@@ -40,7 +41,11 @@ export const onNavigate = (pathname) => {
 };
 
 window.onpopstate = () => {
-    const currentPage = routes[window.location.pathname];
-    setContent(currentPage);
+    if (isUserLogged()) {
+        const currentPage = routes[window.location.pathname];
+        setContent(currentPage);
+    } else {
+        onNavigate('/login');
+    }
 };
 
